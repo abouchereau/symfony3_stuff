@@ -29,3 +29,29 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+
+#    elasticsearch:
+#        image: docker.elastic.co/elasticsearch/elasticsearch:6.0.1
+#        environment:
+#           - cluster.name=demo
+#           - bootstrap.memory_lock=true
+#           - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+#        ulimits:
+#            memlock:
+#                soft: -1
+#                hard: -1
+#        ports:
+#            - 9200:9200
+
+#    kibana:
+#        image: docker.elastic.co/kibana/kibana:6.0.1
+#        links:
+#            - elasticsearch
+#        ports:
+#            - 5601:5601
+            
+    Elastica\Client:
+        $config:
+            host: 'localhost'
+            port: 9200

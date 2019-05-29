@@ -16,13 +16,13 @@
         <p>Recherche pour : <b>{{ q }}</b></p>
     {% endif %}
     
-    {% if points.hits is defined  %}        
-        <div class="collection">
-        {% for point in points.hits %}
-            <a class="collection-item" href="{{ path('point_edit', {'id': point.id}) }}">{{ point._highlightResult.name.value|raw }} : {{ point._highlightResult.description.value|raw }}</a>
-        {%  endfor %}
-        </div>
-    {% endif %}
+
+    <div class="collection">
+    {% for point in points %}
+        <a class="collection-item" href="{{ path('point_edit', {'id': point.id|replace({"point_":""}) }) }}">{{ point.source.name }} : {{ point.source.description }}</a>
+    {%  endfor %}
+    </div>
+
 {% endblock %}
 {%  block javascripts %}
 
