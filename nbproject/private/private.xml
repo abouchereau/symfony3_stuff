@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/projets/sf_3.4/templates/point/_delete_form.html.twig</file>
+            <file>file:/D:/projets/sf_3.4/templates/lucky/number.html.twig</file>
+            <file>file:/D:/projets/sf_3.4/src/Entity/Point.php</file>
+            <file>file:/D:/projets/sf_3.4/config/packages/sensio_framework_extra.yaml</file>
+            <file>file:/D:/projets/sf_3.4/templates/product/index.html.twig</file>
+            <file>file:/D:/projets/sf_3.4/templates/product/_form.html.twig</file>
+            <file>file:/D:/projets/sf_3.4/config/packages/algolia_search.yml</file>
+            <file>file:/D:/projets/sf_3.4/public/css/global.css</file>
+            <file>file:/D:/projets/sf_3.4/src/Form/PointType.php</file>
+            <file>file:/D:/projets/sf_3.4/templates/search/index.html.twig</file>
+            <file>file:/D:/projets/sf_3.4/.env</file>
+            <file>file:/D:/projets/sf_3.4/src/Repository/PointRepository.php</file>
+            <file>file:/D:/projets/sf_3.4/config/security.yml</file>
+            <file>file:/D:/projets/sf_3.4/src/Entity/Product.php</file>
+            <file>file:/D:/projets/sf_3.4/composer.json</file>
+            <file>file:/D:/projets/sf_3.4/config/routes/annotations.yaml</file>
+            <file>file:/D:/projets/sf_3.4/translations/messages.fr.yml</file>
+            <file>file:/D:/projets/sf_3.4/src/Kernel.php</file>
+            <file>file:/D:/projets/sf_3.4/config/bundles.php</file>
+            <file>file:/D:/projets/sf_3.4/src/Controller/LuckyController.php</file>
+            <file>file:/D:/projets/sf_3.4/config/routes.yaml</file>
+            <file>file:/D:/projets/sf_3.4/templates/lucky/home.html.twig</file>
+            <file>file:/D:/projets/sf_3.4/templates/point/_form.html.twig</file>
+            <file>file:/D:/projets/sf_3.4/translations/messages.en.yml</file>
+            <file>file:/D:/projets/sf_3.4/templates/point/index.html.twig</file>
+            <file>file:/D:/projets/sf_3.4/config/packages/doctrine.yaml</file>
+            <file>file:/D:/projets/sf_3.4/templates/point/edit.html.twig</file>
+            <file>file:/D:/projets/sf_3.4/config/services.yaml</file>
+            <file>file:/D:/projets/sf_3.4/src/Controller/PointController.php</file>
+            <file>file:/D:/projets/sf_3.4/config/config.yml</file>
+            <file>file:/D:/projets/sf_3.4/src/Controller/ProductController.php</file>
+            <file>file:/D:/projets/sf_3.4/templates/point/new.html.twig</file>
+            <file>file:/D:/projets/sf_3.4/templates/product/_delete_form.html.twig</file>
+            <file>file:/D:/projets/sf_3.4/templates/partials/navbar.html.twig</file>
+            <file>file:/D:/projets/sf_3.4/src/Entity/.gitignore</file>
+            <file>file:/D:/projets/sf_3.4/src/Form/ProductType.php</file>
+            <file>file:/D:/projets/sf_3.4/templates/base.html.twig</file>
+            <file>file:/D:/projets/sf_3.4/templates/product/edit.html.twig</file>
+            <file>file:/D:/projets/sf_3.4/src/Controller/SearchController.php</file>
+        </group>
+    </open-files>
+</project-private>

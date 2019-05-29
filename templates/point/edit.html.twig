@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css"  />{%  endblock %}
+{% block title %}Edit Point{% endblock %}
+
+{% block body %}
+    <h4>Modification point</h4>
+
+    {{ include('point/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('point_index') }}">back to list</a>
+
+    {{ include('point/_delete_form.html.twig') }}
+{% endblock %}

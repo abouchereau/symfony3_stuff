@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche Algolia{% endblock %}
+{% block stylesheets %}{% endblock %}
+{% block body %}
+    <form action="" method="GET">
+         <div class="input-field col s6">
+          <i class="material-icons prefix">search</i>
+          <input id="q" name="q" type="text" class="validate">
+          <label for="q">Recherche</label>
+        </div>
+        <input type="submit" class="btn" value="GO" />
+    </form>
+    {%  if q is defined %}
+        <p>Recherche pour : <b>{{ q }}</b></p>
+    {% endif %}
+    
+    {% if points.hits is defined  %}        
+        <div class="collection">
+        {% for point in points.hits %}
+            <a class="collection-item" href="{{ path('point_edit', {'id': point.id}) }}">{{ point._highlightResult.name.value|raw }} : {{ point._highlightResult.description.value|raw }}</a>
+        {%  endfor %}
+        </div>
+    {% endif %}
+{% endblock %}
+{%  block javascripts %}
+
+{% endblock %}

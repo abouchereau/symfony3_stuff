@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block body %}
+    <h1>Product index</h1>
+
+    <table class="table highlight">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr onclick="window.location.href='{{ path('product_edit', {'id': product.id}) }}'" style="cursor:pointer;">
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.description }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('product_new') }}">Create new</a>
+{% endblock %}

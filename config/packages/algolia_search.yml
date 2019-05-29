@@ -1,0 +1,7 @@
+algolia_search:
+    indices:
+        - name: point
+          class: App\Entity\Point
+
+        - name: product
+          class: App\Entity\Product

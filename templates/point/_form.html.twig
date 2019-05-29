@@ -1,0 +1,44 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <div id="map"></div>
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js"></script>
+<script>
+var map = L.map('map').setView([46.5,2], 5);
+
+var pin;
+if (document.getElementById('point_latitude').value!="" && document.getElementById('point_longitude').value!="") {
+    pin = L.marker([document.getElementById('point_latitude').value,document.getElementById('point_longitude').value]).addTo(map);
+}
+var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
+});
+var Stamen_Watercolor = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
+	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	subdomains: 'abcd',
+	minZoom: 1,
+	maxZoom: 16,
+	ext: 'jpg'
+});
+Stamen_Watercolor.addTo(map);
+map.on('click',(e)=>{
+    document.getElementById('point_latitude').value = e.latlng.lat;
+    document.getElementById('point_longitude').value = e.latlng.lng;
+    if (pin == null) {
+        pin = L.marker(e.latlng).addTo(map);
+    }
+    pin.setLatLng(e.latlng);
+});
+
+document.forms["point"].addEventListener("submit",(e)=>{
+    if (document.getElementById('point_latitude').value == "" || document.getElementById('point_longitude').value == "") {
+        e.preventDefault();
+        alert("Merci de d'ajouter d'abord un point sur la carte.");        
+        return false;
+    }
+});
+
+</script>

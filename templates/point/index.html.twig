@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Point index{% endblock %}
+{% block stylesheets %}<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css"  />{%  endblock %}
+{% block body %}
+
+<div id="map"></div>
+<br />
+<a class="btn blue darken-4" href="{{ path("point_new") }}"><i class="material-icons left">place</i> Ajouter un point</a>
+{% endblock %}
+{%  block javascripts %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js"></script>
+<script>
+        
+var points = {{ points|json_encode|raw }};
+
+var latmin = Number.POSITIVE_INFINITY;
+var longmin = Number.POSITIVE_INFINITY;
+var latmax = Number.NEGATIVE_INFINITY;
+var longmax = Number.NEGATIVE_INFINITY;	
+var map = L.map('map');
+var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
+});
+var Stamen_Watercolor = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
+	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	subdomains: 'abcd',
+	minZoom: 1,
+	maxZoom: 16,
+	ext: 'jpg'
+});
+Stamen_Watercolor.addTo(map);
+
+
+for(let point of points) {
+    L.marker([point.latitude, point.longitude]).addTo(map)
+    .bindPopup('<h5>'+point.name+'</h5><p>'+point.description+'</p><p><a href="/point/'+point.id+'/edit" class="btn-small">modifer</a> <a href="/point/'+point.id+'/delete" class="red darken-2 btn-small">supprimer</a>');
+    latmin = Math.min(latmin, point.latitude);
+    latmax = Math.max(latmax, point.latitude);
+    longmin = Math.min(longmin, point.longitude);
+    longmax = Math.max(longmax, point.longitude);
+}
+var bounds = new L.LatLngBounds([latmin, longmin],[latmax, longmax]);
+map.fitBounds(bounds, {padding: [40,40]});
+</script>
+{% endblock %}
