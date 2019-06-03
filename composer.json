@@ -6,6 +6,8 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "algolia/search-bundle": "^3.4",
+        "knpuniversity/oauth2-client-bundle": "^1.28",
+        "league/oauth2-google": "^3.0",
         "ruflin/elastica": "^6.1",
         "sensio/framework-extra-bundle": "^5.3",
         "symfony/asset": "3.4.*",
@@ -17,6 +19,7 @@
         "symfony/maker-bundle": "^1.11",
         "symfony/monolog-bundle": "^3.3",
         "symfony/orm-pack": "^1.0",
+        "symfony/security-bundle": "3.4.*",
         "symfony/security-csrf": "3.4.*",
         "symfony/translation": "3.4.*",
         "symfony/validator": "3.4.*",
@@ -67,6 +70,7 @@
         }
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.1",
         "symfony/profiler-pack": "^1.0",
         "symfony/web-server-bundle": "3.4.*"
     }

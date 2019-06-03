@@ -12,7 +12,6 @@
             <file>file:/D:/projets/sf_3.4/config/packages/algolia_search.yml</file>
             <file>file:/D:/projets/sf_3.4/public/css/global.css</file>
             <file>file:/D:/projets/sf_3.4/src/Form/PointType.php</file>
-            <file>file:/D:/projets/sf_3.4/templates/search/index.html.twig</file>
             <file>file:/D:/projets/sf_3.4/.env</file>
             <file>file:/D:/projets/sf_3.4/src/Repository/PointRepository.php</file>
             <file>file:/D:/projets/sf_3.4/config/security.yml</file>
@@ -21,6 +20,7 @@
             <file>file:/D:/projets/sf_3.4/config/routes/annotations.yaml</file>
             <file>file:/D:/projets/sf_3.4/translations/messages.fr.yml</file>
             <file>file:/D:/projets/sf_3.4/src/Kernel.php</file>
+            <file>file:/D:/projets/sf_3.4/templates/search/algolia.html.twig</file>
             <file>file:/D:/projets/sf_3.4/config/bundles.php</file>
             <file>file:/D:/projets/sf_3.4/src/Controller/LuckyController.php</file>
             <file>file:/D:/projets/sf_3.4/config/routes.yaml</file>
@@ -29,12 +29,14 @@
             <file>file:/D:/projets/sf_3.4/translations/messages.en.yml</file>
             <file>file:/D:/projets/sf_3.4/templates/point/index.html.twig</file>
             <file>file:/D:/projets/sf_3.4/config/packages/doctrine.yaml</file>
+            <file>file:/D:/projets/sf_3.4/templates/search/elastic.html.twig</file>
             <file>file:/D:/projets/sf_3.4/templates/point/edit.html.twig</file>
             <file>file:/D:/projets/sf_3.4/config/services.yaml</file>
             <file>file:/D:/projets/sf_3.4/src/Controller/PointController.php</file>
             <file>file:/D:/projets/sf_3.4/config/config.yml</file>
             <file>file:/D:/projets/sf_3.4/src/Controller/ProductController.php</file>
             <file>file:/D:/projets/sf_3.4/templates/point/new.html.twig</file>
+            <file>file:/D:/projets/sf_3.4/public/js/global.js</file>
             <file>file:/D:/projets/sf_3.4/templates/product/_delete_form.html.twig</file>
             <file>file:/D:/projets/sf_3.4/templates/partials/navbar.html.twig</file>
             <file>file:/D:/projets/sf_3.4/src/Entity/.gitignore</file>

@@ -1,7 +1,15 @@
 <nav>
-    <div class="nav-wrapper navbar-fixed green darken-1">
+    <div class="nav-wrapper navbar-fixed blue-grey darken-2">
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <a href="/" class="brand-logo right"><i class="large material-icons">public</i></a>
+      {% if  is_granted('IS_AUTHENTICATED_FULLY') %}
+        <div class="sidenav-trigger right">        
+        <a href="{{ path('logout') }}" class="tooltipped" data-position="left" data-tooltip="{% trans %}Logout{% endtrans %} {{ app.user.email }}"><i class="material-icons">power_settings_new</i></a>
+        </div>      
+      {% else %}
+          <div class="sidenav-trigger right">    
+            <a href="{{ path('app_login') }}">{% trans %}Login{% endtrans %}</a>
+          </div>
+      {% endif %}
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="{{ path('fr_lucky_number') }}">Tests</a></li>
         <li><a href="{{ path('product_index') }}">Produits</a></li>

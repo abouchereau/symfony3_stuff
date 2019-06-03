@@ -1,0 +1,50 @@
+
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html
+security:
+
+    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    providers:
+        my_provider:
+            entity: { class: 'App\Entity\User', property: email }
+        oauth:
+            id: knpu.oauth2.user_provider
+            
+    encoders:
+        # use your user class name here
+        App\Entity\User:
+            # bcrypt or sodium are recommended
+            # sodium is more secure, but requires PHP 7.2 or the Sodium extension
+            algorithm: bcrypt
+            cost: 12
+#
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: ~
+            logout:
+                path: logout
+                target: home
+
+            guard:
+                authenticators:
+                    - App\Security\LoginFormAuthenticator
+                    - App\Security\GoogleAuthenticator
+                    - App\Security\FacebookAuthenticator
+                entry_point: App\Security\LoginFormAuthenticator
+#    firewalls:
+#        main:
+#            # ...
+#            guard:
+#                authenticators:
+#                    - App\Security\LoginFormAuthenticator
+
+
+    access_control:
+        - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+
+

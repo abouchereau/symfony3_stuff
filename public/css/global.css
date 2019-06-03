@@ -4,3 +4,17 @@
 em {
     color:#ff5722; 
 }
+.nobr {
+    white-space:nowrap; 
+}
+
+.social-logo {
+    width:25px;
+    height:25px;
+    background-color:#FFF;
+    border-radius:100%;
+    padding:2px;
+    position:relative;
+    top:5px;
+    right:5px;
+}
