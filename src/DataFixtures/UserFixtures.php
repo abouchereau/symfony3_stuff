@@ -20,15 +20,22 @@ class UserFixtures extends Fixture
     
     public function load(ObjectManager $manager)
     {
-         $user = new User();
-         $user->setEmail("abouchereau@umanis.com");
-         $user->setCreatedAt(new \DateTime());
-         $user->setPassword($this->passwordEncoder->encodePassword(
-             $user,
-             'umanis'
-         ));
-        $manager->persist($user);
-
+        $users = [
+            ["abouchereau@umanis.com","Anthony","umanis"],
+            ["fbouazdi@umanis.com","Farid","umanis"],
+            ["jplantier@umanis.com","Josselin","umanis"],
+            ];
+        foreach($users as $eachUser) {
+            $user = new User();
+            $user->setEmail($eachUser[0]);
+            $user->setFullname($eachUser[1]);
+            $user->setCreatedAt(new \DateTime());
+            $user->setPassword($this->passwordEncoder->encodePassword(
+                $user,
+                $eachUser[2]
+            ));
+           $manager->persist($user);
+        }
         $manager->flush();
     }
     

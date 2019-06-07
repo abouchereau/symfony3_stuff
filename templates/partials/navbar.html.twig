@@ -3,7 +3,7 @@
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       {% if  is_granted('IS_AUTHENTICATED_FULLY') %}
         <div class="sidenav-trigger right">        
-        <a href="{{ path('logout') }}" class="tooltipped" data-position="left" data-tooltip="{% trans %}Logout{% endtrans %} {{ app.user.email }}"><i class="material-icons">power_settings_new</i></a>
+        <a href="{{ path('logout') }}" class="tooltipped" data-position="left" data-tooltip="{% trans %}Logout{% endtrans %} {{ app.user.fullname }}"><i class="material-icons">power_settings_new</i></a>
         </div>      
       {% else %}
           <div class="sidenav-trigger right">    
@@ -11,8 +11,8 @@
           </div>
       {% endif %}
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="{{ path('fr_lucky_number') }}">Tests</a></li>
-        <li><a href="{{ path('product_index') }}">Produits</a></li>
+    <!--    <li><a href="{{ path('fr_lucky_number') }}">Tests</a></li>
+        <li><a href="{{ path('product_index') }}">Produits</a></li>-->
         <li><a href="{{ path('point_index') }}">Points</a></li>
         <li><a href="{{ path('search_algolia') }}">Recherche Algolia</a></li>
         <li><a href="{{ path('search_elastic') }}">Recherche Elastica</a></li>
@@ -21,8 +21,8 @@
 </nav>
       
  <ul class="sidenav" id="mobile-demo">
-    <li><a href="{{ path('fr_lucky_number') }}">Tests</a></li>
-    <li><a href="{{ path('product_index') }}">Produits</a></li>
+    <!--<li><a href="{{ path('fr_lucky_number') }}">Tests</a></li>
+    <li><a href="{{ path('product_index') }}">Produits</a></li>-->
     <li><a href="{{ path('point_index') }}">Points</a></li>
     <li><a href="{{ path('search_algolia') }}">Recherche Algolia</a></li>
     <li><a href="{{ path('search_elastic') }}">Recherche Elastica</a></li>

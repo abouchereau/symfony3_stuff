@@ -19,7 +19,7 @@
 
     <div class="collection">
     {% for point in points %}
-        <a class="collection-item" href="{{ path('point_edit', {'id': point.id|replace({"point_":""}) }) }}">{{ point.source.name }} : {{ point.source.description }}</a>
+        <a class="collection-item" href="{{ path('point_edit', {'id': point._id|replace({"point_":""}) }) }}">{{ point._source.name }} : {{ point._source.description }}</a>
     {%  endfor %}
     </div>
 

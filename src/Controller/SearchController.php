@@ -33,7 +33,7 @@ class SearchController extends AbstractController {
         $this->client = $client;
     }
     
-    
+//indexer algolia avec php bin/console search:import
     /**
      * @Route("/algolia",  name="search_algolia")
      */
@@ -48,41 +48,54 @@ class SearchController extends AbstractController {
             ['q'=>$q,'points'=>$points]
             );
    }
+       /**
+     * @Route("/algolia_clear",  name="clear_algolia")
+     */
+    public function algoliaClearAction(Request $request) {        
+        $this->indexManager->clear(Point::class);   
+        return new Response("OK");
+   }
+   
    
        /**
      * @Route("/elastic",  name="search_elastic")
      */
     public function elasticAction(Request $request) {        
         $q = $request->query->get('q');        
-        $points = [];
+        $points = [];       
         if($q != null) {
-            $query = [
-                "query"=> [
-                    "match"=> [
-                        "name"=> 
-                            ["query"=> $q ,
-                            "fuzziness"=> 2,
-                            "prefix_length"=> 1
-                            ]
-                          ]
-                        ]
-                      ];
-            $path = 'point/_search';
-            $points = $this->client->request($path, Request::METHOD_GET, $query);
-die(var_dump($points));
-           /* $finalQuery = new BoolQuery();
-            $query1 = new \Elastica\Query\Fuzzy();
-            $query1->setField('name',$q);
-            $finalQuery->addShould($query1);
-            $query2 = new \Elastica\Query\Fuzzy();
-            $query2->setField('description',"*".$q);
-            $finalQuery->addShould($query2);
+            
+            
+            
+            $query = ["query" => 
+                ["multi_match" =>
+                    ["query" => $q,
+                     "fuzziness" => 1,
+                    "fields" => ["name", "description"]
+                         ]
+                    ]
+                ];
 
-            $points = $this->client->getIndex('point')->search($query);*/
+            $path = 'point/_search';
+            $client = new Client();
+            $response = $client->request($path, Request::METHOD_GET, $query);
+            $points = $response->getData();
+            $points = $points["hits"]["hits"];
+            //die(var_dump($points["hits"]["hits"]));
         }
         return $this->render('search/elastic.html.twig',
             ['q'=>$q,'points'=>$points]
             );
+   }
+   
+          /**
+     * @Route("/elastic_clear",  name="clear_elastic")
+     */
+    public function elasticClearAction(Request $request) {        
+        $path = 'point';
+        $client = new Client();
+        $client->request($path, Request::METHOD_DELETE, []);
+        return new Response("OK");
    }
    
     /**
@@ -136,7 +149,7 @@ die(var_dump($points));
 
         $index->addDocuments($documents);
         $index->refresh();     
-        return new \Symfony\Component\HttpFoundation\Response(var_dump($index));
+        return new \Symfony\Component\HttpFoundation\Response(count($documents));
    }
    
    
